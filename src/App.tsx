@@ -1,5 +1,5 @@
 import { useState, useMemo, useEffect, useRef } from 'react';
-import { Container, Box, ThemeProvider, createTheme, Stack, Button, Grid } from '@mui/material';
+import { Container, Box, ThemeProvider, createTheme, Stack, Button } from '@mui/material';
 import FilterBuilder from './components/FilterBuilder';
 import DataTable from './components/DataTable';
 import Header from './components/Header';
@@ -82,32 +82,28 @@ function App() {
       <Container maxWidth="lg" sx={{ py: 4 }}>
         <Header />
 
-        <Grid container spacing={3}>
-          <Grid item xs={12} md={4}>
-            <Box sx={{ backgroundColor: '#fbfbfd', p: 2, borderRadius: 2, boxShadow: 1 }}>
-              <FilterBuilder
-                filters={filters}
-                onFiltersChange={setFilters}
-                fieldDefinitions={fieldDefinitions}
-              />
+        <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', md: '380px 1fr' }, gap: 24 }}>
+          <Box sx={{ backgroundColor: '#fbfbfd', p: 2, borderRadius: 2, boxShadow: 1 }}>
+            <FilterBuilder
+              filters={filters}
+              onFiltersChange={setFilters}
+              fieldDefinitions={fieldDefinitions}
+            />
 
-              <Stack direction="row" spacing={2} sx={{ mt: 2 }}>
-                <Button variant="outlined" onClick={handleExportCSV}>
-                  Export CSV
-                </Button>
-                <Button variant="outlined" onClick={handleExportJSON}>
-                  Export JSON
-                </Button>
-              </Stack>
-            </Box>
-          </Grid>
+            <Stack direction="row" spacing={2} sx={{ mt: 2 }}>
+              <Button variant="outlined" onClick={handleExportCSV}>
+                Export CSV
+              </Button>
+              <Button variant="outlined" onClick={handleExportJSON}>
+                Export JSON
+              </Button>
+            </Stack>
+          </Box>
 
-          <Grid item xs={12} md={8}>
-            <Box sx={{ backgroundColor: 'white', borderRadius: 2, p: 1, boxShadow: 1 }}>
-              <DataTable data={filteredData} totalRecords={sampleEmployeeData.length} />
-            </Box>
-          </Grid>
-        </Grid>
+          <Box sx={{ backgroundColor: 'white', borderRadius: 2, p: 1, boxShadow: 1 }}>
+            <DataTable data={filteredData} totalRecords={sampleEmployeeData.length} />
+          </Box>
+        </Box>
       </Container>
     </ThemeProvider>
   );
