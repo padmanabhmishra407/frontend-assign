@@ -57,6 +57,7 @@ function App() {
 
   const [employees, setEmployees] = useState(() => sampleEmployeeData);
   const [fieldDefinitions, setFieldDefinitions] = useState<FieldDefinition[]>(() => defaultFieldDefinitions);
+  const [filtersVisible, setFiltersVisible] = useState(true);
 
   useEffect(() => {
     let mounted = true;
@@ -87,17 +88,19 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <Container maxWidth="lg" sx={{ py: 4 }}>
-        <Header />
+        <Header onToggleFilters={() => setFiltersVisible((v) => !v)} filtersVisible={filtersVisible} />
 
-        <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', md: '380px 1fr' }, gap: 24 }}>
-          <Box sx={{ backgroundColor: '#fbfbfd', p: 2, borderRadius: 2, boxShadow: 1 }}>
-            <FilterBuilder
-              filters={filters}
-              onFiltersChange={setFilters}
-              fieldDefinitions={fieldDefinitions}
-            />
+        <Stack spacing={3}>
+          {filtersVisible && (
+            <Box sx={{ backgroundColor: '#fbfbfd', p: 2, borderRadius: 2, boxShadow: 1, width: '100%' }}>
+              <FilterBuilder
+                filters={filters}
+                onFiltersChange={setFilters}
+                fieldDefinitions={fieldDefinitions}
+              />
 
-                <Stack direction="row" spacing={2} sx={{ mt: 2 }}>
+              <Box sx={{ display: 'flex', justifyContent: 'flex-end', mt: 2 }}>
+                <Stack direction="row" spacing={2}>
                   <Button variant="contained" color="primary" onClick={handleExportCSV} startIcon={<svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 3v10" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/><path d="M8 9l4 4 4-4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/><path d="M21 21H3" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/></svg>}>
                     Export CSV
                   </Button>
@@ -105,12 +108,14 @@ function App() {
                     Export JSON
                   </Button>
                 </Stack>
-          </Box>
+              </Box>
+            </Box>
+          )}
 
           <Box sx={{ backgroundColor: 'white', borderRadius: 2, p: 1, boxShadow: 1 }}>
             <DataTable data={filteredData} totalRecords={sampleEmployeeData.length} />
           </Box>
-        </Box>
+        </Stack>
       </Container>
     </ThemeProvider>
   );
