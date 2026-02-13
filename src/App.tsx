@@ -18,11 +18,16 @@ const theme = createTheme({
     secondary: {
       main: '#0f172a',
     },
+    background: {
+      default: '#f8fafc',
+      paper: '#ffffff',
+    },
   },
   typography: {
     fontFamily: '"Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", sans-serif',
+    button: { textTransform: 'none' },
   },
-  shape: { borderRadius: 10 },
+  shape: { borderRadius: 8 },
 });
 
 function App() {
@@ -93,10 +98,10 @@ function App() {
             />
 
                 <Stack direction="row" spacing={2} sx={{ mt: 2 }}>
-                  <Button variant="contained" color="primary" onClick={handleExportCSV}>
+                  <Button variant="contained" color="primary" onClick={handleExportCSV} startIcon={<svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 3v10" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/><path d="M8 9l4 4 4-4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/><path d="M21 21H3" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/></svg>}>
                     Export CSV
                   </Button>
-                  <Button variant="outlined" color="primary" onClick={handleExportJSON}>
+                  <Button variant="outlined" color="primary" onClick={handleExportJSON} startIcon={<svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2v6" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/><path d="M7 7h10v12H7z" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/></svg>}>
                     Export JSON
                   </Button>
                 </Stack>
