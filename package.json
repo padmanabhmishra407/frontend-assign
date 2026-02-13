@@ -1,5 +1,7 @@
 {
   "name": "dynamic-filter-studio",
+  "description": "Dynamic Filter Studio — reusable dynamic filter components (React + TypeScript)",
+  "homepage": "https://padmanabhmishra407.github.io/frontend-assign",
   "private": true,
   "version": "0.0.0",
   "type": "module",
