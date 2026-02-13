@@ -107,16 +107,7 @@ export default function FilterBuilder({
       </Stack>
 
       <Stack direction="row" spacing={2}>
-        <Button
-          onClick={handleAddFilter}
-          variant="contained"
-          startIcon={<Plus size={18} />}
-          sx={{
-            backgroundColor: '#2196f3',
-            '&:hover': { backgroundColor: '#1976d2' },
-          }}
-              aria-label="Add filter"
-        >
+        <Button onClick={handleAddFilter} variant="contained" startIcon={<Plus size={18} />} aria-label="Add filter">
           Add Filter
         </Button>
         {filters.length > 0 && (

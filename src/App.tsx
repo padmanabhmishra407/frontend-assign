@@ -12,15 +12,17 @@ import type { FieldDefinition } from './types';
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#2196f3',
+      main: '#0ea5a4',
+      contrastText: '#ffffff',
     },
     secondary: {
-      main: '#f50057',
+      main: '#0f172a',
     },
   },
   typography: {
     fontFamily: '"Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", sans-serif',
   },
+  shape: { borderRadius: 10 },
 });
 
 function App() {
@@ -90,14 +92,14 @@ function App() {
               fieldDefinitions={fieldDefinitions}
             />
 
-            <Stack direction="row" spacing={2} sx={{ mt: 2 }}>
-              <Button variant="outlined" onClick={handleExportCSV}>
-                Export CSV
-              </Button>
-              <Button variant="outlined" onClick={handleExportJSON}>
-                Export JSON
-              </Button>
-            </Stack>
+                <Stack direction="row" spacing={2} sx={{ mt: 2 }}>
+                  <Button variant="contained" color="primary" onClick={handleExportCSV}>
+                    Export CSV
+                  </Button>
+                  <Button variant="outlined" color="primary" onClick={handleExportJSON}>
+                    Export JSON
+                  </Button>
+                </Stack>
           </Box>
 
           <Box sx={{ backgroundColor: 'white', borderRadius: 2, p: 1, boxShadow: 1 }}>
