@@ -88,18 +88,19 @@ export default function FilterBuilder({
                   onUpdate={handleUpdateFilter}
                 />
               </Box>
-              <Button
-                onClick={() => handleRemoveFilter(filter.id)}
-                size="small"
-                sx={{
-                  color: '#d32f2f',
-                  '&:hover': { backgroundColor: '#ffebee' },
-                  mt: 0.5,
-                }}
-                variant="text"
-              >
-                <Trash2 size={18} />
-              </Button>
+                  <Button
+                    onClick={() => handleRemoveFilter(filter.id)}
+                    size="small"
+                    sx={{
+                      color: '#d32f2f',
+                      '&:hover': { backgroundColor: '#ffebee' },
+                      mt: 0.5,
+                    }}
+                    variant="text"
+                    aria-label={`Remove filter ${filter.id}`}
+                  >
+                    <Trash2 size={18} />
+                  </Button>
             </Box>
           </Box>
         ))}
@@ -114,6 +115,7 @@ export default function FilterBuilder({
             backgroundColor: '#2196f3',
             '&:hover': { backgroundColor: '#1976d2' },
           }}
+              aria-label="Add filter"
         >
           Add Filter
         </Button>

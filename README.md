@@ -227,3 +227,20 @@ Contact / Notes
 This single-page README is intentionally concise for hiring and review purposes. Detailed implementation and test artifacts are in `archive_docs/`.
 ### Type Safety
 
+**Demo Script (Interview)**
+- Start the mock API and dev server:
+   - `npm install`
+   - `npm run mock` (serves mock API at http://localhost:4000)
+   - `npm run dev` (open http://localhost:5173)
+- Walkthrough steps:
+   1. Open the app and show record counts at the top of the table.
+   2. Click `Add Filter` and build a Text filter: Name contains "Smith" — show live results.
+   3. Add Salary (`Amount`) between 80000 and 120000 — show formatting and combined filters.
+   4. Add `Skills` multi-select with `In` operator and pick `React` and `TypeScript` — show array matching.
+   5. Add `Join Date` range to demonstrate date filtering.
+   6. Toggle `Active Status` boolean filter.
+   7. Export the filtered dataset using `Export CSV` and `Export JSON` buttons.
+   8. Clear filters and show `No results` state by creating a filter that yields zero matches.
+
+Use the `gh-pages` deployment for a live demo link once CI completes.
+

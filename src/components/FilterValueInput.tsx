@@ -1,14 +1,4 @@
-import {
-  Box,
-  TextField,
-  Select,
-  MenuItem,
-  FormControl,
-  InputLabel,
-  Checkbox,
-  FormGroup,
-  FormControlLabel,
-} from '@mui/material';
+import { Box, TextField, Select, MenuItem, FormControl, InputLabel, Checkbox, FormGroup, FormControlLabel } from '@mui/material';
 import type { FieldType, FilterValue, Operator } from '../types';
 
 interface FilterValueInputProps {
@@ -40,6 +30,7 @@ export default function FilterValueInput({
           onChange={(e) => onValueChange({ ...value, text: e.target.value })}
           error={Boolean(errorMessage)}
           helperText={errorMessage}
+          inputProps={{ 'aria-label': 'text filter value' }}
         />
       );
 
@@ -57,6 +48,7 @@ export default function FilterValueInput({
           }
           error={Boolean(errorMessage)}
           helperText={errorMessage}
+          inputProps={{ 'aria-label': 'number filter value' }}
         />
       );
 
@@ -71,6 +63,7 @@ export default function FilterValueInput({
             value={value.dateStart || ''}
             onChange={(e) => onValueChange({ ...value, dateStart: e.target.value })}
             error={Boolean(errorMessage)}
+            inputProps={{ 'aria-label': 'start date' }}
           />
           <TextField
             size="small"
@@ -80,6 +73,7 @@ export default function FilterValueInput({
             value={value.dateEnd || ''}
             onChange={(e) => onValueChange({ ...value, dateEnd: e.target.value })}
             error={Boolean(errorMessage)}
+            inputProps={{ 'aria-label': 'end date' }}
           />
           {errorMessage && (
             <div style={{ gridColumn: '1 / -1', color: '#d32f2f', fontSize: '0.8rem' }}>{errorMessage}</div>
@@ -100,6 +94,7 @@ export default function FilterValueInput({
               onValueChange({ ...value, amountMin: e.target.value ? Number(e.target.value) : undefined })
             }
             error={Boolean(errorMessage)}
+            inputProps={{ 'aria-label': 'min amount' }}
           />
           <TextField
             size="small"
@@ -111,6 +106,7 @@ export default function FilterValueInput({
               onValueChange({ ...value, amountMax: e.target.value ? Number(e.target.value) : undefined })
             }
             error={Boolean(errorMessage)}
+            inputProps={{ 'aria-label': 'max amount' }}
           />
           {errorMessage && (
             <div style={{ gridColumn: '1 / -1', color: '#d32f2f', fontSize: '0.8rem' }}>{errorMessage}</div>
@@ -127,6 +123,7 @@ export default function FilterValueInput({
             label="Select Value"
             onChange={(e) => onValueChange({ ...value, selectValue: e.target.value })}
             error={Boolean(errorMessage)}
+            inputProps={{ 'aria-label': 'select filter value' }}
           >
             <MenuItem value="">-- Select --</MenuItem>
             {options.map((opt) => (
@@ -186,6 +183,7 @@ export default function FilterValueInput({
               <Checkbox
                 checked={value.booleanValue ?? false}
                 onChange={(e) => onValueChange({ ...value, booleanValue: e.target.checked })}
+                inputProps={{ 'aria-label': 'boolean filter value' }}
               />
             }
             label={operator === 'is' ? 'Active' : 'Is True'}
