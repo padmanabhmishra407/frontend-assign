@@ -1,0 +1,89 @@
+[
+  {
+    "name": "name",
+    "label": "Name",
+    "type": "text",
+    "operators": ["equals", "contains", "startsWith", "endsWith", "doesNotContain"]
+  },
+  {
+    "name": "email",
+    "label": "Email",
+    "type": "text",
+    "operators": ["equals", "contains", "startsWith", "endsWith", "doesNotContain"]
+  },
+  {
+    "name": "department",
+    "label": "Department",
+    "type": "select",
+    "operators": ["is", "isNot"],
+    "options": [
+      { "label": "Engineering", "value": "Engineering" },
+      { "label": "Design", "value": "Design" },
+      { "label": "Product", "value": "Product" },
+      { "label": "Sales", "value": "Sales" },
+      { "label": "Marketing", "value": "Marketing" },
+      { "label": "HR", "value": "HR" },
+      { "label": "Finance", "value": "Finance" }
+    ]
+  },
+  {
+    "name": "role",
+    "label": "Role",
+    "type": "text",
+    "operators": ["equals", "contains", "startsWith", "endsWith", "doesNotContain"]
+  },
+  {
+    "name": "salary",
+    "label": "Salary",
+    "type": "amount",
+    "operators": ["between"]
+  },
+  {
+    "name": "joinDate",
+    "label": "Join Date",
+    "type": "date",
+    "operators": ["between"]
+  },
+  {
+    "name": "isActive",
+    "label": "Active Status",
+    "type": "boolean",
+    "operators": ["is"]
+  },
+  {
+    "name": "skills",
+    "label": "Skills",
+    "type": "multiselect",
+    "operators": ["in", "notIn"],
+    "options": [
+      { "label": "React", "value": "React" },
+      { "label": "TypeScript", "value": "TypeScript" },
+      { "label": "Node.js", "value": "Node.js" },
+      { "label": "Python", "value": "Python" },
+      { "label": "AWS", "value": "AWS" },
+      { "label": "GraphQL", "value": "GraphQL" },
+      { "label": "Kubernetes", "value": "Kubernetes" },
+      { "label": "Leadership", "value": "Leadership" },
+      { "label": "Figma", "value": "Figma" },
+      { "label": "Design System", "value": "Design System" }
+    ]
+  },
+  {
+    "name": "address.city",
+    "label": "City",
+    "type": "text",
+    "operators": ["equals", "contains", "startsWith", "endsWith", "doesNotContain"]
+  },
+  {
+    "name": "projects",
+    "label": "Active Projects",
+    "type": "number",
+    "operators": ["equals", "greaterThan", "lessThan", "greaterThanOrEqual", "lessThanOrEqual"]
+  },
+  {
+    "name": "performanceRating",
+    "label": "Performance Rating",
+    "type": "number",
+    "operators": ["equals", "greaterThan", "lessThan", "greaterThanOrEqual", "lessThanOrEqual"]
+  }
+]
