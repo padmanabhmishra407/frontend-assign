@@ -33,3 +33,7 @@ body,
 @media (max-width: 900px) {
   .site-header { text-align: left; }
 }
+
+/* Card and table density tweaks */
+.MuiPaper-root { border-radius: 10px; }
+.compact-table td, .compact-table th { padding-top: 6px; padding-bottom: 6px; }

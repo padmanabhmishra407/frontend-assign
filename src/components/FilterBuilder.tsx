@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { Card, Box, Button, Stack } from '@mui/material';
-import { Plus, Trash2 } from 'lucide-react';
+import { Card, Box, Button, Stack, Typography } from '@mui/material';
+import { Plus, Trash2, Filter } from 'lucide-react';
 import FilterConditionRow from './FilterConditionRow';
 import type { FilterCondition, FieldDefinition } from '../types';
 
@@ -44,18 +44,12 @@ export default function FilterBuilder({
   };
 
   return (
-    <Card
-      sx={{
-        p: 3,
-        mb: 3,
-        backgroundColor: '#f5f5f5',
-        border: '1px solid #e0e0e0',
-      }}
-    >
-      <Box sx={{ mb: 2 }}>
-        <h2 style={{ marginTop: 0, marginBottom: 16, fontSize: '1.25rem' }}>
-          Filter Conditions
-        </h2>
+    <Card sx={{ p: 2, mb: 3, backgroundColor: '#fbfbfd', border: '1px solid #eef2f6', boxShadow: 0 }}>
+      <Box sx={{ mb: 2, display: 'flex', alignItems: 'center', gap: 1 }}>
+        <Filter size={18} style={{ color: '#0ea5a4' }} />
+        <Typography variant="h6" sx={{ margin: 0, fontSize: '1rem', fontWeight: 700 }}>
+          Filters
+        </Typography>
         {filters.length === 0 && (
           <p style={{ color: '#666', margin: 0 }}>
             No filters applied. Click "Add Filter" to create one.

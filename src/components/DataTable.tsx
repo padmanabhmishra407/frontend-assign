@@ -85,15 +85,15 @@ export default function DataTable({ data, totalRecords }: DataTableProps) {
       </Stack>
 
       {data.length === 0 ? (
-        <Paper sx={{ p: 3, textAlign: 'center', backgroundColor: '#f5f5f5' }}>
+        <Paper sx={{ p: 2, textAlign: 'center', backgroundColor: '#fbfbfd' }}>
           <p style={{ color: '#999', margin: 0 }}>
             No results found. Try adjusting your filters.
           </p>
         </Paper>
       ) : (
-        <TableContainer component={Paper} sx={{ boxShadow: 2 }}>
-          <Table>
-            <TableHead sx={{ backgroundColor: '#f5f5f5' }}>
+        <TableContainer component={Paper} sx={{ boxShadow: 1 }}>
+          <Table size="small">
+            <TableHead sx={{ backgroundColor: '#fafafa' }}>
               <TableRow>
                 <TableCell sx={{ fontWeight: 600, width: '12%' }}>
                   <TableSortLabel
@@ -159,18 +159,18 @@ export default function DataTable({ data, totalRecords }: DataTableProps) {
                 <TableRow
                   key={record.id}
                   sx={{
-                    '&:hover': { backgroundColor: '#f9f9f9' },
-                    '&:nth-of-type(even)': { backgroundColor: '#fafafa' },
+                    '&:hover': { backgroundColor: '#f8fafd' },
+                    '&:nth-of-type(even)': { backgroundColor: '#ffffff' },
                   }}
                 >
-                  <TableCell sx={{ fontWeight: 500 }}>{record.name}</TableCell>
-                  <TableCell sx={{ fontSize: '0.9rem', color: '#666' }}>{record.email}</TableCell>
+                  <TableCell sx={{ fontWeight: 500, py: 0.8 }}>{record.name}</TableCell>
+                  <TableCell sx={{ fontSize: '0.9rem', color: '#666', py: 0.8 }}>{record.email}</TableCell>
                   <TableCell>{record.department}</TableCell>
-                  <TableCell sx={{ fontSize: '0.9rem' }}>{record.role}</TableCell>
-                  <TableCell align="right" sx={{ fontWeight: 500 }}>
+                  <TableCell sx={{ fontSize: '0.9rem', py: 0.8 }}>{record.role}</TableCell>
+                  <TableCell align="right" sx={{ fontWeight: 500, py: 0.8 }}>
                     {formatSalary(record.salary)}
                   </TableCell>
-                  <TableCell sx={{ fontSize: '0.9rem' }}>{formatDate(record.joinDate)}</TableCell>
+                  <TableCell sx={{ fontSize: '0.9rem', py: 0.8 }}>{formatDate(record.joinDate)}</TableCell>
                   <TableCell>
                     <span
                       style={{
@@ -186,8 +186,8 @@ export default function DataTable({ data, totalRecords }: DataTableProps) {
                       {record.isActive ? 'Active' : 'Inactive'}
                     </span>
                   </TableCell>
-                  <TableCell align="center">{record.projects}</TableCell>
-                  <TableCell align="center" sx={{ fontWeight: 600 }}>
+                  <TableCell align="center" sx={{ py: 0.8 }}>{record.projects}</TableCell>
+                  <TableCell align="center" sx={{ fontWeight: 600, py: 0.8 }}>
                     {record.performanceRating.toFixed(1)}
                   </TableCell>
                 </TableRow>
