@@ -1,4 +1,4 @@
-# Dynamic Filter Component System
+# Dynamic Filter Studio
 
 A professional, reusable dynamic filter component system built with React 18, TypeScript, and Material-UI. This system provides real-time filtering of complex datasets with support for multiple data types and operators.
 
