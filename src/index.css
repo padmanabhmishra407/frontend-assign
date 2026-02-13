@@ -18,3 +18,18 @@ body,
 #root {
   height: 100%;
 }
+
+/* Header and layout tweaks inspired by edstruments.com clean layout */
+.site-header {
+  display: block;
+}
+.site-brand svg {
+  flex-shrink: 0;
+}
+.site-header .site-brand h5 {
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .site-header { text-align: left; }
+}

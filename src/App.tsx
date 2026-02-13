@@ -1,7 +1,8 @@
 import { useState, useMemo, useEffect, useRef } from 'react';
-import { Container, Box, ThemeProvider, createTheme, Stack, Button } from '@mui/material';
+import { Container, Box, ThemeProvider, createTheme, Stack, Button, Grid } from '@mui/material';
 import FilterBuilder from './components/FilterBuilder';
 import DataTable from './components/DataTable';
+import Header from './components/Header';
 import type { FilterCondition } from './types';
 import { sampleEmployeeData, fieldDefinitions as defaultFieldDefinitions } from './data/sampleData';
 import { applyFilters } from './utils/filterLogic';
@@ -79,33 +80,34 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <Container maxWidth="lg" sx={{ py: 4 }}>
-        <Box sx={{ mb: 4 }}>
-          <h1 style={{ margin: '0 0 8px 0', fontSize: '2rem', color: '#333' }}>
-            Dynamic Filter Component System
-          </h1>
-          <p style={{ margin: 0, color: '#666', fontSize: '1rem' }}>
-            Real-time filtering of employee data with advanced filtering capabilities
-          </p>
-        </Box>
+        <Header />
 
-        <FilterBuilder
-          filters={filters}
-          onFiltersChange={setFilters}
-          fieldDefinitions={fieldDefinitions}
-        />
+        <Grid container spacing={3}>
+          <Grid item xs={12} md={4}>
+            <Box sx={{ backgroundColor: '#fbfbfd', p: 2, borderRadius: 2, boxShadow: 1 }}>
+              <FilterBuilder
+                filters={filters}
+                onFiltersChange={setFilters}
+                fieldDefinitions={fieldDefinitions}
+              />
 
-        <Stack direction="row" spacing={2} sx={{ mb: 2 }}>
-          <Button variant="outlined" onClick={handleExportCSV}>
-            Export CSV
-          </Button>
-          <Button variant="outlined" onClick={handleExportJSON}>
-            Export JSON
-          </Button>
-        </Stack>
+              <Stack direction="row" spacing={2} sx={{ mt: 2 }}>
+                <Button variant="outlined" onClick={handleExportCSV}>
+                  Export CSV
+                </Button>
+                <Button variant="outlined" onClick={handleExportJSON}>
+                  Export JSON
+                </Button>
+              </Stack>
+            </Box>
+          </Grid>
 
-        <Box sx={{ backgroundColor: 'white', borderRadius: '4px' }}>
-          <DataTable data={filteredData} totalRecords={sampleEmployeeData.length} />
-        </Box>
+          <Grid item xs={12} md={8}>
+            <Box sx={{ backgroundColor: 'white', borderRadius: 2, p: 1, boxShadow: 1 }}>
+              <DataTable data={filteredData} totalRecords={sampleEmployeeData.length} />
+            </Box>
+          </Grid>
+        </Grid>
       </Container>
     </ThemeProvider>
   );
