@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Exclude UI reference screenshots (kept locally outside git history)
+uiux_refrence_images/
