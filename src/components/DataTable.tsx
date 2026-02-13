@@ -91,7 +91,7 @@ export default function DataTable({ data, totalRecords }: DataTableProps) {
           </p>
         </Paper>
       ) : (
-        <TableContainer component={Paper} sx={{ boxShadow: 1 }}>
+        <TableContainer component={Paper} sx={{ boxShadow: 1, overflowX: 'auto' }}>
           <Table size="small">
             <TableHead sx={{ backgroundColor: '#fafafa' }}>
               <TableRow>
@@ -104,7 +104,7 @@ export default function DataTable({ data, totalRecords }: DataTableProps) {
                     Name
                   </TableSortLabel>
                 </TableCell>
-                <TableCell sx={{ fontWeight: 600, width: '18%' }}>Email</TableCell>
+                <TableCell sx={{ fontWeight: 600, width: '18%', display: { xs: 'none', md: 'table-cell' } }}>Email</TableCell>
                 <TableCell sx={{ fontWeight: 600, width: '12%' }}>
                   <TableSortLabel
                     active={sortConfig.key === 'department'}
@@ -114,7 +114,7 @@ export default function DataTable({ data, totalRecords }: DataTableProps) {
                     Department
                   </TableSortLabel>
                 </TableCell>
-                <TableCell sx={{ fontWeight: 600, width: '12%' }}>Role</TableCell>
+                <TableCell sx={{ fontWeight: 600, width: '12%', display: { xs: 'none', md: 'table-cell' } }}>Role</TableCell>
                 <TableCell sx={{ fontWeight: 600, width: '10%' }} align="right">
                   <TableSortLabel
                     active={sortConfig.key === 'salary'}
@@ -143,7 +143,7 @@ export default function DataTable({ data, totalRecords }: DataTableProps) {
                     Projects
                   </TableSortLabel>
                 </TableCell>
-                <TableCell sx={{ fontWeight: 600, width: '9%' }} align="center">
+                <TableCell sx={{ fontWeight: 600, width: '9%', display: { xs: 'none', md: 'table-cell' } }} align="center">
                   <TableSortLabel
                     active={sortConfig.key === 'performanceRating'}
                     direction={sortConfig.key === 'performanceRating' ? sortConfig.direction : 'asc'}
@@ -164,9 +164,9 @@ export default function DataTable({ data, totalRecords }: DataTableProps) {
                   }}
                 >
                   <TableCell sx={{ fontWeight: 500, py: 0.8 }}>{record.name}</TableCell>
-                  <TableCell sx={{ fontSize: '0.9rem', color: '#666', py: 0.8 }}>{record.email}</TableCell>
+                  <TableCell sx={{ fontSize: '0.9rem', py: 0.8, display: { xs: 'none', md: 'table-cell' } }}>{record.email}</TableCell>
                   <TableCell>{record.department}</TableCell>
-                  <TableCell sx={{ fontSize: '0.9rem', py: 0.8 }}>{record.role}</TableCell>
+                  <TableCell sx={{ fontSize: '0.9rem', py: 0.8, display: { xs: 'none', md: 'table-cell' } }}>{record.role}</TableCell>
                   <TableCell align="right" sx={{ fontWeight: 500, py: 0.8 }}>
                     {formatSalary(record.salary)}
                   </TableCell>
@@ -186,8 +186,8 @@ export default function DataTable({ data, totalRecords }: DataTableProps) {
                       {record.isActive ? 'Active' : 'Inactive'}
                     </span>
                   </TableCell>
-                  <TableCell align="center" sx={{ py: 0.8 }}>{record.projects}</TableCell>
-                  <TableCell align="center" sx={{ fontWeight: 600, py: 0.8 }}>
+                  <TableCell align="center" sx={{ py: 0.8, display: { xs: 'none', md: 'table-cell' } }}>{record.projects}</TableCell>
+                  <TableCell align="center" sx={{ fontWeight: 600, py: 0.8, display: { xs: 'none', md: 'table-cell' } }}>
                     {record.performanceRating.toFixed(1)}
                   </TableCell>
                 </TableRow>

@@ -76,7 +76,7 @@ export default function FilterConditionRow({
     <Box
       sx={{
         display: 'grid',
-        gridTemplateColumns: '1fr 1fr 1.5fr',
+        gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr', md: '1fr 1fr 1.5fr' },
         gap: 2,
         alignItems: 'flex-start',
       }}
