@@ -57,7 +57,7 @@ function App() {
 
   const [employees, setEmployees] = useState(() => sampleEmployeeData);
   const [fieldDefinitions, setFieldDefinitions] = useState<FieldDefinition[]>(() => defaultFieldDefinitions);
-  const [filtersVisible, setFiltersVisible] = useState(true);
+  const filtersVisible = true;
 
   useEffect(() => {
     let mounted = true;
@@ -88,7 +88,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <Container maxWidth="lg" sx={{ py: 4 }}>
-        <Header onToggleFilters={() => setFiltersVisible((v) => !v)} filtersVisible={filtersVisible} />
+        <Header />
 
         <Stack spacing={3}>
           {filtersVisible && (
